@@ -35,10 +35,9 @@ class chapitreDAO extends DAO{
 		return $this->buildObjectChapitre($chap);
 	}
 
-	public function ajoutChapitre($chap){
-		extract($chap);
+	public function ajoutChapitre(parametre $chap){
 		$sql = 'INSERT INTO chapitre (Titre_Chapitre,Text_Chapitre,Ecrivain) VALUES(?,?,?)';
-		$this->createQuery($sql, [$Titre_Chapitre,$Text_Chapitre,$Ecrivain]);
+		$this->createQuery($sql, [$chap->get('Titre_Chapitre'),$chap->get('Text_Chapitre'),$chap->get('Ecrivain')]);
 	}
 
 }

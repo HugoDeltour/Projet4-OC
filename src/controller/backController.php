@@ -4,20 +4,11 @@ namespace App\src\controller;
 use App\src\DAO\chapitreDAO;
 use App\src\model\view;
 
-class backController{
+class backController extends Controller{
 
-  private $view;
-  private $chapitreDAO;
-
-  public function __construct(){
-    $this->view = new view();
-    $this->chapitreDAO = new chapitreDAO();
-  }
-
-  public function ajoutChapitre($post){
-    if(isset($post['submit'])){
-      $chapitreDAO = new chapitreDAO();
-      $chapitreDAO->ajoutChapitre($post);
+  public function ajoutChapitre(parametre $post){
+    if($post->get('submit')){
+      $this->chapitreDAO->ajoutChapitre($post);
       header('Location: ../public/index.php');
     }
     $reqChap = $this->chapitreDAO->getChapitres();
@@ -28,5 +19,4 @@ class backController{
   }
 
 }
-
 ?>

@@ -1,28 +1,48 @@
 <?php
 namespace App\config;
 use App\src\controller\frontController;
+use App\src\controller\errorController;
+use App\src\controller\backController;
 use Exception;
 
 class router{
 
   private $frontController;
+  private $backController;
+  private $errorController;
+  private $request;
 
   public function __construct(){
-    $this->frontController=new frontController();
+    $this->request= new request();
+    $this->frontController = new frontController();
+    $this->backController = new backController();
+    $this->errorController = new errorController();
   }
 
   public function run(){
-
+    $route = $this->request->getGet()->get('route');
     try{
-      if(isset($_GET['route'])){
-        if($_GET['route']==='chapitre'){
-          $this->frontController->chapSeul();
+      if(isset($route)){
+        if($route==='chapitre'){
+          $this->frontController->chapSeul($this->request->getGet()->get('chapID'));
         }
-        elseif ($_GET['route']==='register') {
+        elseif ($route==='register') {
           $this->frontController->register();
         }
+        elseif ($route==='administration') {
+          $this->frontController->administration();
+        }
+        elseif ($route==='ajoutChapitre') {
+          $this->backController->ajoutChapitre($this->request->getPost());
+        }
+        elseif ($route==='modifChapitre') {
+          $this->backController->modifChapitre($this->request->getPost());
+        }
+        elseif ($route==='auteur') {
+          $this->frontController->auteur();
+        }
         else{
-          echo '404 - page not found';
+          $this->errorController->errorNotFound();
         }
       }
       else{
@@ -30,7 +50,7 @@ class router{
       }
     }
     catch(Exception $e){
-      echo 'Erreur';
+      $this->errorController->errorServer();
     }
   }
 }

@@ -5,17 +5,7 @@ use App\src\DAO\chapitreDAO;
 use App\src\DAO\commentDAO;
 use App\src\model\view;
 
-class frontController{
-
-  private $chapitreDAO;
-  private $commentDAO;
-  private $view;
-
-  public function __construct(){
-    $this->chapitreDAO = new chapitreDAO();
-    $this->commentDAO = new commentDAO();
-    $this->view = new view();
-  }
+class frontController extends Controller{
 
   public function home(){
     $req = $this->chapitreDAO->getChapitres();
@@ -26,10 +16,10 @@ class frontController{
     ]);
   }
 
-  public function chapSeul(){
+  public function chapSeul($idChapitre){
     $reqChap = $this->chapitreDAO->getChapitres();
-    $req=$this->chapitreDAO->getChapitre($_GET['chapID']);
-    $comments = $this->commentDAO->getCommentsFromArticle($_GET['chapID']);
+    $req=$this->chapitreDAO->getChapitre($idChapitre);
+    $comments = $this->commentDAO->getCommentsFromArticle($idChapitre);
     return $this->view->rendu('chapitreSeul',[
       'req'=>$req,
       'reqChap'=>$reqChap,

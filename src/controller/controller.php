@@ -2,14 +2,14 @@
 
 namespace App\src\controller;
 
-use App\src\DAO\ArticleDAO;
-use App\src\DAO\CommentDAO;
+use App\src\DAO\chapitreDAO;
+use App\src\DAO\commentDAO;
 use App\src\model\View;
 
 abstract class Controller
 {
     protected $chapitreDAO;
-    protected $commentDAO
+    protected $commentDAO;
     protected $view;
 
     public function __construct()

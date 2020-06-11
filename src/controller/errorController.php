@@ -2,7 +2,7 @@
 
 namespace App\src\controller;
 
-class errorController{
+class errorController extends Controller{
 
   public function errorNotFound(){
     require '../templates/error404.php';
