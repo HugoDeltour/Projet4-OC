@@ -29,7 +29,16 @@ class chapitreDAO extends DAO{
 
 	public function getChapitre($chapID){
 		$sql='SELECT * FROM chapitre WHERE ID_Chapitre = ?';
-		return $this->createQuery($sql,[$chapID]);
+		$result= $this->createQuery($sql,[$chapID]);
+		$chap = $result->fetch();
+		$result->closeCursor();
+		return $this->buildObjectChapitre($chap);
+	}
+
+	public function ajoutChapitre($chap){
+		extract($chap);
+		$sql = 'INSERT INTO chapitre (Titre_Chapitre,Text_Chapitre,Ecrivain) VALUES(?,?,?)';
+		$this->createQuery($sql, [$Titre_Chapitre,$Text_Chapitre,$Ecrivain]);
 	}
 
 }
