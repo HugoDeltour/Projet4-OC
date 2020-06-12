@@ -2,6 +2,7 @@
 <?php
   require('menu.php');
 ?>
+<?= $this->session->display('ajout_chapitre')?>
 <div id="list-chap">
     <h1>Chapitre</h1>
     <?php

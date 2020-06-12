@@ -2,6 +2,7 @@
 
 namespace App\src\DAO;
 
+use App\config\parametre;
 use App\src\model\chapitre;
 
 class chapitreDAO extends DAO{

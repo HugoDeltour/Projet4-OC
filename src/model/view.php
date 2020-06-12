@@ -2,17 +2,27 @@
 
 namespace App\src\model;
 
+use App\config\request;
+
 class view{
 
   private $file;
   private $title;
+  private $request;
+  private $session;
+
+  public function __construct(){
+    $this->request=new request();
+    $this->session=$this->request->getSession();
+  }
 
   public function rendu($template, $data=[]){
     $this->file='../templates/'.$template.'.php';
     $content = $this->renduFichier($this->file, $data);
     $view = $this->renduFichier('../templates/base.php',[
       'title'=>$this->title,
-      'content'=>$content
+      'content'=>$content,
+      'session'=>$this->session
     ]);
     echo $view;
   }
