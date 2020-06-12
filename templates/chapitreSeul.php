@@ -26,6 +26,9 @@ require('menu.php');
     ?>
 </div>
 </br>
+<div class="administration">
+  <a href="../public/index.php?route=modifChapitre&chapID=<?=$req->getId();?>">Modification du chapitre</a>
+</div>
 <div id="commentaire">
   <?php
           foreach($comments as $comment)

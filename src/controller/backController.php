@@ -19,5 +19,17 @@ class backController extends Controller{
     ]);
   }
 
+  public function modifChapitre(parametre $post, $chapID){
+    $chapitre = $this->chapitreDAO->getChapitre($chapID);
+    if($post->get('submit')){
+      $this->chapitreDAO->modifChapitre($post,$chapID);
+      $this->session->set('modif_chapitre','Le chapitre a été modifié !');
+      header('Location: ../public/index.php');
+    }
+    return $this->view->rendu('modif_chapitre',[
+      'chapitre'=>$chapitre
+    ]);
+  }
+
 }
 ?>

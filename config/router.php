@@ -36,7 +36,7 @@ class router{
           $this->backController->ajoutChapitre($this->request->getPost());
         }
         elseif ($route==='modifChapitre') {
-          $this->backController->modifChapitre($this->request->getPost());
+          $this->backController->modifChapitre($this->request->getPost(),$this->request->getGet()->get('chapID'));
         }
         elseif ($route==='auteur') {
           $this->frontController->auteur();
