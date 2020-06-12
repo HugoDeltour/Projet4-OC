@@ -10,7 +10,7 @@ class request{
   public function __construct(){
     $this->get = new parametre($_GET);
     $this->post = new parametre($_POST);
-    $this->session = $_SESSION;
+    $this->session = new session($_SESSION);
   }
 
   public function getGet(){
