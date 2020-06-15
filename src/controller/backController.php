@@ -26,8 +26,10 @@ class backController extends Controller{
       $this->session->set('modif_chapitre','Le chapitre a été modifié !');
       header('Location: ../public/index.php');
     }
+    $reqChap = $this->chapitreDAO->getChapitres();
     return $this->view->rendu('modif_chapitre',[
-      'chapitre'=>$chapitre
+      'chapitre'=>$chapitre,
+      'reqChap'=>$reqChap
     ]);
   }
 
