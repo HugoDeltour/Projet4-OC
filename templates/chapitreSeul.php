@@ -28,6 +28,9 @@ require('menu.php');
   <a href="../public/index.php?route=supprimerChapitre&chapID=<?=$req->getId();?>">Supprimer</a>
 </div>
 <div id="commentaire">
+  <h3>Ajouter un commentaire</h3>
+  <?php include('base_form_commentaire.php');?>
+  <h3>Commentaires</h3>
   <?php
           foreach($comments as $comment)
           {

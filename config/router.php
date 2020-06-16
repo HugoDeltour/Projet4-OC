@@ -44,6 +44,9 @@ class router{
         elseif ($route==='supprimerChapitre') {
           $this->backController->supprimerChapitre($this->request->getGet()->get('chapID'));
         }
+        elseif ($route==='ajoutCommentaire') {
+          $this->frontController->ajoutCommentaire($this->request->getPost(),$this->request->getGet()->get('chapID'));
+        }
         else{
           $this->errorController->errorNotFound();
         }

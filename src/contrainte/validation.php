@@ -10,6 +10,11 @@ class validation{
       $errors = $validationChapitre->check($data);
       return $errors;
     }
+    elseif ($name==='commentaire') {
+      $validationCommentaire = new validationCommentaire();
+      $errors = $validationCommentaire->check($data);
+      return $errors;
+    }
   }
 
 }

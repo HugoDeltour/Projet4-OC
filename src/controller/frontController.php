@@ -48,6 +48,27 @@ class frontController extends Controller{
     ]);
   }
 
+  public function ajoutCommentaire(parametre $post,$chapID){
+    if($post->get('submit')){
+      $errors=$this->validation->validate($post,'commentaire');
+      if(!$errors){
+        $this->commentDAO->ajoutCommentaire($post,$chaID);
+        $this->session->set('ajout_commentaire','Le commentaire a été ajouté');
+        header('Location:../public/index.php?route=chapitre&chapID='.$chaID);
+      }
+      $reqChap = $this->chapitreDAO->getChapitres();
+      $req=$this->chapitreDAO->getChapitre($idChapitre);
+      $comments = $this->commentDAO->getCommentsFromArticle($idChapitre);
+      return $this->view->rendu('chapitreSeul',[
+        'req'=>$req,
+        'reqChap'=>$reqChap,
+        'comments'=>$comments,
+        'post'=>$post,
+        'errors'=>$errors
+      ]);
+    }
+  }
+
 }
 
 ?>

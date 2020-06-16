@@ -28,6 +28,11 @@ class commentDAO extends DAO{
       return $comments;
   }
 
+  public function ajoutCommentaire(parametre $post,$chapID){
+    $sql='INSERT INTO commentaire (Pseudo,Text_Commentaire,Date_Creation,Commentaire_ID_Chapitre) VALUES (?,?,NOW(),?)';
+    $this->createQuery($sql,[$post->get('pseudo'),$post->get('commentaire'),$chaID]);
+  }
+
 }
 
 ?>
