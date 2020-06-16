@@ -50,6 +50,8 @@ class router{
       }
     }
     catch(Exception $e){
+      var_dump("".$e->getMessage());
+      var_dump($this->request->getPost());
       $this->errorController->errorServer();
     }
   }

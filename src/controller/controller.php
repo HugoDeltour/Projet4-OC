@@ -6,6 +6,7 @@ use App\config\request;
 use App\src\DAO\chapitreDAO;
 use App\src\DAO\commentDAO;
 use App\src\model\View;
+use App\src\contrainte\validation;
 
 abstract class Controller
 {
@@ -16,6 +17,7 @@ abstract class Controller
     protected $get;
     protected $post;
     protected $session;
+    protected $validation;
 
     public function __construct()
     {
@@ -26,6 +28,7 @@ abstract class Controller
         $this->get = $this->request->getGet();
         $this->post = $this->request->getPost();
         $this->session = $this->request->getSession();
+        $this->validation = new validation();
     }
 }
 

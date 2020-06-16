@@ -7,12 +7,20 @@ use App\config\parametre;
 class backController extends Controller{
 
   public function ajoutChapitre(parametre $post){
-    if($post->get('submit')){
-      $this->chapitreDAO->ajoutChapitre($post);
-      $this->session->set('ajout_chapitre','Le nouveau chapitre a été ajouté !');
-      header('Location: ../public/index.php');
-    }
     $reqChap = $this->chapitreDAO->getChapitres();
+    if($post->get('submit')){
+      $errors = $this->validation->validate($post,'chapitre');
+      if(!$errors){
+        $this->chapitreDAO->ajoutChapitre($post);
+        $this->session->set('ajout_chapitre','Le nouveau chapitre a été ajouté !');
+        header('Location: ../public/index.php');
+      }
+      return $this->view->rendu('ajout_chapitre',[
+        'post'=>$post,
+        'reqChap'=>$reqChap,
+        'errors'=>$errors
+      ]);
+    }
     return $this->view->rendu('ajout_chapitre',[
       'post'=>$post,
       'reqChap'=>$reqChap
@@ -21,15 +29,31 @@ class backController extends Controller{
 
   public function modifChapitre(parametre $post, $chapID){
     $chapitre = $this->chapitreDAO->getChapitre($chapID);
-    if($post->get('submit')){
-      $this->chapitreDAO->modifChapitre($post,$chapID);
-      $this->session->set('modif_chapitre','Le chapitre a été modifié !');
-      header('Location: ../public/index.php');
-    }
     $reqChap = $this->chapitreDAO->getChapitres();
+    if($post->get('submit')){
+      $errors = $this->validation->validate($post,'chapitre');
+      if(!$errors){
+        $this->chapitreDAO->modifChapitre($post,$chapID);
+        $this->session->set('modif_chapitre','Le chapitre a été modifié !');
+        header('Location: ../public/index.php');
+      }
+      return $this->view->rendu('modif_chapitre',[
+        'chapitre'=>$chapitre,
+        'reqChap'=>$reqChap,
+        'errors'=> $errors,
+        'post'=>$post
+      ]);
+    }
+
+    $post->set('ID_Chapitre',$chapitre->getId());
+    $post->set('Titre_Chapitre',$chapitre->getTitle());
+    $post->set('Text_Chapitre',$chapitre->getText());
+    $post->set('Ecrivain',$chapitre->getAuthor());
+
     return $this->view->rendu('modif_chapitre',[
       'chapitre'=>$chapitre,
-      'reqChap'=>$reqChap
+      'reqChap'=>$reqChap,
+      'post'=>$post
     ]);
   }
 

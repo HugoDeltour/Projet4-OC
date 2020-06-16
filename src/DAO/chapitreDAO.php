@@ -44,9 +44,9 @@ class chapitreDAO extends DAO{
 	public function modifChapitre(parametre $post, $chapID){
 		$sql = 'UPDATE chapitre SET Titre_Chapitre=:title, Text_Chapitre=:content, Ecrivain=:author WHERE ID_Chapitre =:chapID ';
 		$this->createQuery($sql,[
-			'title'=> $post->get('title'),
-			'content'=> $post->get('content'),
-			'author'=> $post->get('author'),
+			'title'=> $post->get('Titre_Chapitre'),
+			'content'=> $post->get('Text_Chapitre'),
+			'author'=> $post->get('Ecrivain'),
 			'chapID'=> $chapID
 		]);
 	}

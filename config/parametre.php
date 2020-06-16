@@ -10,6 +10,7 @@ class parametre{
   }
 
   public function get($name){
+
     if(isset($this->parametre[$name])){
       return $this->parametre[$name];
     }
@@ -17,6 +18,10 @@ class parametre{
 
   public function set($name,$value){
     $this->parametre[$name]=$value;
+  }
+
+  public function all(){
+    return$this->parametre;
   }
 
 }
