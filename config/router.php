@@ -47,6 +47,9 @@ class router{
         elseif ($route==='ajoutCommentaire') {
           $this->frontController->ajoutCommentaire($this->request->getPost(),$this->request->getGet()->get('chapID'));
         }
+        elseif ($route==='signalerCommentaire') {
+          $this->frontController->signalerCommentaire($this->request->getGet()->get('commentaireID'));
+        }
         else{
           $this->errorController->errorNotFound();
         }

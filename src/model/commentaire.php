@@ -8,6 +8,7 @@ class commentaire{
   private $pseudo;
   private $comment;
   private $date;
+  private $signal;
 
   public function getId(){
     return $this->id;
@@ -39,6 +40,14 @@ class commentaire{
 
   public function setDate($date){
     $this->date = $date;
+  }
+
+  public function isSignal(){
+    return $this->signal;
+  }
+
+  public function setSignal($signal){
+    $this->signal=$signal;
   }
 
 }

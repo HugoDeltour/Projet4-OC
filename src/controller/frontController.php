@@ -4,6 +4,7 @@ namespace App\src\controller;
 use App\src\DAO\chapitreDAO;
 use App\src\DAO\commentDAO;
 use App\src\model\view;
+use App\config\parametre;
 
 class frontController extends Controller{
 
@@ -52,13 +53,13 @@ class frontController extends Controller{
     if($post->get('submit')){
       $errors=$this->validation->validate($post,'commentaire');
       if(!$errors){
-        $this->commentDAO->ajoutCommentaire($post,$chaID);
+        $this->commentDAO->ajoutCommentaire($post,$chapID);
         $this->session->set('ajout_commentaire','Le commentaire a été ajouté');
-        header('Location:../public/index.php?route=chapitre&chapID='.$chaID);
+        header('Location:../public/index.php?route=chapitre&chapID='.$chapID);
       }
       $reqChap = $this->chapitreDAO->getChapitres();
-      $req=$this->chapitreDAO->getChapitre($idChapitre);
-      $comments = $this->commentDAO->getCommentsFromArticle($idChapitre);
+      $req=$this->chapitreDAO->getChapitre($chapID);
+      $comments = $this->commentDAO->getCommentsFromArticle($chapID);
       return $this->view->rendu('chapitreSeul',[
         'req'=>$req,
         'reqChap'=>$reqChap,
@@ -67,6 +68,12 @@ class frontController extends Controller{
         'errors'=>$errors
       ]);
     }
+  }
+
+  public function signalerCommentaire($commentID){
+    $this->commentDAO->signalerCommentaire($commentID);
+    $this->session->set('signaler_commentaire','Le commentaire a été signalé');
+    header('Location:../public/index.php');
   }
 
 }

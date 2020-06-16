@@ -7,19 +7,16 @@ require('menu.php');
     <h1>Chapitre</h1>
     <?php
         foreach($reqChap as $donnees){
-            echo $donnees->getId();
             ?>
             <a href="../public/index.php?route=chapitre&chapID=<?=htmlspecialchars($donnees->getId());?>"><?php echo $donnees->getTitle();?></a></br><?php
         };
     ?>
 </div></br>
 <div id="Chapitre">
-    <h2><?php echo $req->getTitle();?></h2>
-    <?php
-    echo $req->getText();?>
+    <h2><?=htmlspecialchars($req->getTitle());?></h2>
+    <p><?=htmlspecialchars($req->getText());?>
     </br>
-    <?php
-    echo $req->getAuthor();?>
+    <p><?=htmlspecialchars($req->getAuthor());?>
     </br>
 </div>
 </br>
@@ -33,15 +30,21 @@ require('menu.php');
   <h3>Commentaires</h3>
   <?php
           foreach($comments as $comment)
-          {
-            echo $comment->getPseudo();
+          {?>
+            <p><?= htmlspecialchars($comment->getPseudo());?></p>
+            <p><?= htmlspecialchars($comment->getComment());?></p>
+            <p><?= htmlspecialchars($comment->getDate());?></p>
+            <?php
+            if($comment->isSignal()){
+              ?>
+              <p>Commentaire déjà signaler</p>
+              <?php
+            }else{
+              ?>
+              <p><a href="../public/index.php?route=signalerCommentaire&commentaireID=<?= $comment->getId(); ?>">Signaler</a></p>
+              <?php
+            }
             ?>
-            </br>
-            <?php
-            echo $comment->getComment();?>
-            </br>
-            <?php
-            echo $comment->getDate();?>
             </br>
             <?php
           }

@@ -18,7 +18,6 @@ abstract class DAO{
 	}
 
 	private function getConnection(){
-
 		try
 		{
 	    	$this->connection = new PDO(DB_host, DB_user, DB_password);
