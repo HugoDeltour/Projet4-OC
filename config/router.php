@@ -41,6 +41,9 @@ class router{
         elseif ($route==='auteur') {
           $this->frontController->auteur();
         }
+        elseif ($route==='supprimerChapitre') {
+          $this->backController->supprimerChapitre($this->request->getGet()->get('chapID'));
+        }
         else{
           $this->errorController->errorNotFound();
         }

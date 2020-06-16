@@ -57,5 +57,11 @@ class backController extends Controller{
     ]);
   }
 
+  public function supprimerChapitre($chapID){
+    $this->chapitreDAO->supprimerChapitre($chapID);
+    $this->session->set('supprimer_chapitre','Le chapitre a été supprimé');
+    header('Location:../public/index.php');
+  }
+
 }
 ?>

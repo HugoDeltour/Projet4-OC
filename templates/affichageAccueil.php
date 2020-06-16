@@ -4,6 +4,7 @@
 ?>
 <?= $this->session->display('ajout_chapitre')?>
 <?= $this->session->display('modif_chapitre')?>
+<?= $this->session->display('supprimer_chapitre')?>
 <div id="list-chap">
     <h1>Chapitre</h1>
     <?php

@@ -51,5 +51,12 @@ class chapitreDAO extends DAO{
 		]);
 	}
 
+	public function supprimerChapitre($chapID){
+		$sql = 'DELETE FROM commentaire WHERE Commentaire_ID_CHapitre=?';
+		$this->createQuery($sql,[$chapID]);
+		$sql = 'DELETE FROM chapitre WHERE ID_Chapitre=?';
+		$this->createQuery($sql,[$chapID]);
+	}
+
 }
 ?>

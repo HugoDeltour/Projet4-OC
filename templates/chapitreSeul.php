@@ -14,20 +14,18 @@ require('menu.php');
     ?>
 </div></br>
 <div id="Chapitre">
+    <h2><?php echo $req->getTitle();?></h2>
     <?php
-            ?><h2><?php echo $req->getTitle();?></h2>
-            <?php
-            echo $req->getText();?>
-            </br>
-            <?php
-            echo $req->getAuthor();?>
-            </br>
-            <?php
-    ?>
+    echo $req->getText();?>
+    </br>
+    <?php
+    echo $req->getAuthor();?>
+    </br>
 </div>
 </br>
 <div class="administration">
-  <a href="../public/index.php?route=modifChapitre&chapID=<?=$req->getId();?>">Modification du chapitre</a>
+  <a href="../public/index.php?route=modifChapitre&chapID=<?=$req->getId();?>">Modifier</a>
+  <a href="../public/index.php?route=supprimerChapitre&chapID=<?=$req->getId();?>">Supprimer</a>
 </div>
 <div id="commentaire">
   <?php
