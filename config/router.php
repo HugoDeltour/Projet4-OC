@@ -50,6 +50,12 @@ class router{
         elseif ($route==='inscription') {
           $this->frontController->inscription($this->request->getPost());
         }
+        elseif ($route==='connexion') {
+          $this->frontController->connexion($this->request->getPost());
+        }
+        elseif ($route==='deconnexion') {
+          $this->backController->deconnexion();
+        }
         else{
           $this->errorController->errorNotFound();
         }

@@ -2,12 +2,14 @@
 <?php
   require('menu.php');
 ?>
-<?= $this->session->display('ajout_chapitre')?>
-<?= $this->session->display('modif_chapitre')?>
-<?= $this->session->display('supprimer_chapitre')?>
-<?= $this->session->display('ajout_commentaire')?>
-<?= $this->session->display('signaler_commentaire')?>
-<?= $this->session->display('inscription')?>
+<?= $this->session->display('ajout_chapitre');?>
+<?= $this->session->display('modif_chapitre');?>
+<?= $this->session->display('supprimer_chapitre');?>
+<?= $this->session->display('ajout_commentaire');?>
+<?= $this->session->display('signaler_commentaire');?>
+<?= $this->session->display('inscription');?>
+<?= $this->session->display('connexion');?>
+<?= $this->session->display('deconnexion');?>
 <div id="list-chap">
     <h1>Chapitre</h1>
     <?php

@@ -31,6 +31,10 @@ class session{
     unset($_SESSION[$name]);
   }
 
+  public function depart(){
+    session_start();
+  }
+
   public function arret(){
     session_destroy();
   }

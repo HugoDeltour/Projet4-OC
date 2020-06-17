@@ -63,5 +63,12 @@ class backController extends Controller{
     header('Location:../public/index.php');
   }
 
+  public function deconnexion(){
+    $this->session->arret();
+    $this->session->depart();
+    $this->session->set('deconnexion','Au revoir');
+    header('Location:../public/index.php');
+  }
+
 }
 ?>

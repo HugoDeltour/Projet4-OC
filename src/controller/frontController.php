@@ -92,6 +92,31 @@ class frontController extends Controller{
       'reqChap'=>$reqChap
     ]);
   }
+
+  public function connexion(parametre $post){
+    $reqChap = $this->chapitreDAO->getChapitres();
+    if($post->get('submit')){
+      $result=$this->utilisateurDAO->connexion($post);
+      if($result && $result['isPasswordOK']){
+        $this->session->set('connexion','Bienvenue');
+        $this->session->set('id',$result['result']['id']);
+        $this->session->set('pseudo',$post->get('pseudo'));
+        header('Location:../public/index.php');
+      }
+      else {
+        $this->session->set('error_connexion','Le pseudo et/ou le mot de passe sont incorrects');
+        return $this->view->rendu('connexion',[
+          'post'=>$post,
+          'reqChap'=>$reqChap
+        ]);
+      }
+    }
+
+    return $this->view->rendu('connexion',[
+      'reqChap'=>$reqChap
+    ]);
+  }
+
 }
 
 ?>
