@@ -7,6 +7,7 @@ use App\src\DAO\chapitreDAO;
 use App\src\DAO\commentDAO;
 use App\src\model\View;
 use App\src\contrainte\validation;
+use App\src\DAO\utilisateurDAO;
 
 abstract class Controller
 {
@@ -29,6 +30,7 @@ abstract class Controller
         $this->post = $this->request->getPost();
         $this->session = $this->request->getSession();
         $this->validation = new validation();
+        $this->utilisateurDAO = new utilisateurDAO();
     }
 }
 

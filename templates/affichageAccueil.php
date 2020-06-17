@@ -7,6 +7,7 @@
 <?= $this->session->display('supprimer_chapitre')?>
 <?= $this->session->display('ajout_commentaire')?>
 <?= $this->session->display('signaler_commentaire')?>
+<?= $this->session->display('inscription')?>
 <div id="list-chap">
     <h1>Chapitre</h1>
     <?php

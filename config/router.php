@@ -26,9 +26,6 @@ class router{
         if($route==='chapitre'){
           $this->frontController->chapSeul($this->request->getGet()->get('chapID'));
         }
-        elseif ($route==='register') {
-          $this->frontController->register();
-        }
         elseif ($route==='administration') {
           $this->frontController->administration();
         }
@@ -49,6 +46,9 @@ class router{
         }
         elseif ($route==='signalerCommentaire') {
           $this->frontController->signalerCommentaire($this->request->getGet()->get('commentaireID'));
+        }
+        elseif ($route==='inscription') {
+          $this->frontController->inscription($this->request->getPost());
         }
         else{
           $this->errorController->errorNotFound();

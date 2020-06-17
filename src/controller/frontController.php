@@ -28,13 +28,6 @@ class frontController extends Controller{
     ]);
   }
 
-  public function register(){
-    $reqChap = $this->chapitreDAO->getChapitres();
-    return $this->view->rendu('inscription',[
-      'reqChap'=>$reqChap
-    ]);
-  }
-
   public function auteur(){
     $reqChap = $this->chapitreDAO->getChapitres();
     return $this->view->rendu('auteur',[
@@ -76,6 +69,29 @@ class frontController extends Controller{
     header('Location:../public/index.php');
   }
 
+  public function inscription(parametre $post){
+    if($post->get('submit')){
+      $errors=$this->validation->validate($post,'inscription');
+      if($this->utilisateurDAO->checkUtilisateur($post)){
+        $errors['pseudo']=$this->utilisateurDAO->checkUtilisateur($post);
+      }
+      if(!$errors){
+        $this->utilisateurDAO->inscription($post);
+        $this->session->set('inscription','Vous êtes inscrit !');
+        header('Location:../public/index.php');
+      }
+      $reqChap = $this->chapitreDAO->getChapitres();
+      return $this->view->rendu('inscription',[
+        'reqChap'=>$reqChap,
+        'post'=>$post,
+        'errors'=>$errors
+      ]);
+    }
+    $reqChap = $this->chapitreDAO->getChapitres();
+    return $this->view->rendu('inscription',[
+      'reqChap'=>$reqChap
+    ]);
+  }
 }
 
 ?>

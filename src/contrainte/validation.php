@@ -15,6 +15,11 @@ class validation{
       $errors = $validationCommentaire->check($data);
       return $errors;
     }
+    elseif ($name==='utilisateur') {
+      $validationUtilisateur = new validationUtilisateur();
+      $errors = $validationUtilisateur->check($data);
+      return $errors;
+    }
   }
 
 }
