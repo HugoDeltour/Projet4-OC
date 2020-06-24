@@ -27,7 +27,7 @@ class router{
           $this->frontController->chapSeul($this->request->getGet()->get('chapID'));
         }
         elseif ($route==='administration') {
-          $this->frontController->administration();
+          $this->backController->administration();
         }
         elseif ($route==='ajoutChapitre') {
           $this->backController->ajoutChapitre($this->request->getPost());

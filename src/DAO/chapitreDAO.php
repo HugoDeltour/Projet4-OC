@@ -17,7 +17,7 @@ class chapitreDAO extends DAO{
 	}
 
 	public function getChapitres(){
-		$sql='SELECT * FROM chapitre';
+		$sql='SELECT ID_Chapitre, Titre_Chapitre, Text_Chapitre, Ecrivain FROM chapitre';
 		$result = $this->createQuery($sql);
 		$chap=[];
 		foreach ($result as $row) {
@@ -29,7 +29,7 @@ class chapitreDAO extends DAO{
 	}
 
 	public function getChapitre($chapID){
-		$sql='SELECT * FROM chapitre WHERE ID_Chapitre = ?';
+		$sql='SELECT ID_Chapitre, Titre_Chapitre, Text_Chapitre, Ecrivain FROM chapitre WHERE ID_Chapitre = ?';
 		$result= $this->createQuery($sql,[$chapID]);
 		$chap = $result->fetch();
 		$result->closeCursor();

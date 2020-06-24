@@ -18,7 +18,7 @@ class commentDAO extends DAO{
 
   public function getCommentsFromArticle($chapitreId)
   {
-      $sql = 'SELECT * FROM commentaire WHERE Commentaire_ID_Chapitre = ? ORDER BY Date_Creation DESC';
+      $sql = 'SELECT Pseudo, Text_Commentaire, Date_Creation, signaler, Commentaire_ID_Chapitre FROM commentaire WHERE Commentaire_ID_Chapitre = ? ORDER BY Date_Creation DESC';
       $result = $this->createQuery($sql,[$chapitreId]);
       $comments=[];
       foreach($result as $row){

@@ -8,8 +8,8 @@ class utilisateurDAO extends DAO{
 
   public function inscription(parametre $post){
     $this->checkUtilisateur($post);
-    $sql = 'INSERT INTO user (Pseudo,Password) VALUES (?,?)';
-    $this->createQuery($sql,[$post->get('pseudo'),password_hash($post->get('password'),PASSWORD_BCRYPT)]);
+    $sql = 'INSERT INTO user (Pseudo,Password,role_id) VALUES (?,?,?)';
+    $this->createQuery($sql,[$post->get('pseudo'),password_hash($post->get('password'),PASSWORD_BCRYPT)],2);
   }
 
   public function checkUtilisateur(parametre $post){
@@ -22,16 +22,12 @@ class utilisateurDAO extends DAO{
   }
 
   public function connexion(parametre $post){
-    $sql = 'SELECT ID_user,Password FROM user WHERE pseudo =?';
-    var_dump($post);
+    $sql = 'SELECT user.ID_user,user.Password,role.Nom_Role FROM user INNER JOIN role ON role.ID_Role= user.role_id WHERE pseudo =?';
     $data=$this->createQuery($sql,[$post->get('pseudo')]);
     $result=$data->fetch();
-    var_dump($result);
     $isPasswordOK = password_verify($post->get('password'),password_hash($result['Password'],PASSWORD_BCRYPT));
-    var_dump($isPasswordOK);
     return ['result'=>$result,'isPasswordOK'=>$isPasswordOK];
   }
 
 }
-
 ?>

@@ -35,13 +35,6 @@ class frontController extends Controller{
     ]);
   }
 
-  public function administration(){
-    $reqChap = $this->chapitreDAO->getChapitres();
-    return $this->view->rendu('administration',[
-      'reqChap'=>$reqChap
-    ]);
-  }
-
   public function ajoutCommentaire(parametre $post,$chapID){
     if($post->get('submit')){
       $errors=$this->validation->validate($post,'commentaire');
@@ -100,6 +93,7 @@ class frontController extends Controller{
       if($result && $result['isPasswordOK']){
         $this->session->set('connexion','Bienvenue');
         $this->session->set('id',$result['result']['id']);
+        $this->session->set('role',$result['result']['Nom_Role']);
         $this->session->set('pseudo',$post->get('pseudo'));
         header('Location:../public/index.php');
       }

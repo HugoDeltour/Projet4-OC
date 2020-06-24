@@ -70,5 +70,12 @@ class backController extends Controller{
     header('Location:../public/index.php');
   }
 
+  public function administration(){
+    $reqChap = $this->chapitreDAO->getChapitres();
+    return $this->view->rendu('administration',[
+      'reqChap'=>$reqChap
+    ]);
+  }
+
 }
 ?>

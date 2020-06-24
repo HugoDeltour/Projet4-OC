@@ -13,6 +13,7 @@ require('menu.php');
     ?>
 </div></br>
 <div id="administration">
-  <a href="./index.php?route=ajoutChapitre">Ajout chapitre</a>
-  <a href="./index.php?route=modifChapitre">Modification chapitre</a>
+  <a href="./index.php?route=ajoutChapitre">Ajout chapitre</a></br>
+  <a href="./index.php?route=commentairesSignalés">Commentaires signalés</a></br>
+  <a href="./index.php?route=utilisateurSite">Utilisateur</a></br>
 </diV>
