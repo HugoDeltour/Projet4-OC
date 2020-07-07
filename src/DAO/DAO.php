@@ -5,6 +5,11 @@ namespace App\src\DAO;
 use PDO;
 use Exception;
 
+/**
+ * class DAO
+ * @packages App\src\DAO
+ * Classe servant à la connexion à la base de données
+ */
 abstract class DAO{
 
 

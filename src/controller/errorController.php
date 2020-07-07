@@ -2,6 +2,11 @@
 
 namespace App\src\controller;
 
+/**
+ * class errorController
+ * @packages App\src\controller
+ * Controlleur permettant d'afficher les potentielles erreurs
+ */
 class errorController extends Controller{
 
   public function errorNotFound(){

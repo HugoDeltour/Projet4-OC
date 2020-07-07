@@ -6,6 +6,11 @@ use App\src\DAO\commentDAO;
 use App\src\model\view;
 use App\config\parametre;
 
+/**
+ * class frontController
+ * @packages App\src\controller
+ * Controlleur frontal permettant de faire l'appel des requetes SQL et de les afficher
+ */
 class frontController extends Controller{
 
   public function home(){

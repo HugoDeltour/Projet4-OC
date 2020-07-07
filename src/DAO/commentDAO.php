@@ -4,6 +4,11 @@ namespace App\src\DAO;
 use App\config\parametre;
 use App\src\model\commentaire;
 
+/**
+ * class commentDAO
+ * @packages App\src\DAO
+ * Requete SQL basé sur la table 'commetaire'
+ */
 class commentDAO extends DAO{
 
   private function buildObjectComment($row){
@@ -18,7 +23,7 @@ class commentDAO extends DAO{
 
   public function getCommentsFromArticle($chapitreId)
   {
-      $sql = 'SELECT Pseudo, Text_Commentaire, Date_Creation, signaler, Commentaire_ID_Chapitre FROM commentaire WHERE Commentaire_ID_Chapitre = ? ORDER BY Date_Creation DESC';
+      $sql = 'SELECT ID_Commentaire, Pseudo, Text_Commentaire, Date_Creation, signaler, Commentaire_ID_Chapitre FROM commentaire WHERE Commentaire_ID_Chapitre = ? ORDER BY Date_Creation DESC';
       $result = $this->createQuery($sql,[$chapitreId]);
       $comments=[];
       foreach($result as $row){

@@ -21,8 +21,12 @@ require('menu.php');
 </div>
 </br>
 <div class="administration">
-  <a href="../public/index.php?route=modifChapitre&chapID=<?=$req->getId();?>">Modifier</a>
-  <a href="../public/index.php?route=supprimerChapitre&chapID=<?=$req->getId();?>">Supprimer</a>
+  <?php if($this->session->get('role')==='admin'){
+    ?>
+    <a href="../public/index.php?route=supprimerChapitre&chapID=<?=$req->getId();?>">Supprimer</a>
+    <?php
+  }
+  ?>
 </div>
 <div id="commentaire">
   <h3>Ajouter un commentaire</h3>

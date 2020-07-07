@@ -4,12 +4,17 @@ namespace App\src\DAO;
 
 use App\config\parametre;
 
+/**
+ * class utilisateurDAO
+ * @packages App\src\DAO
+ * Requete SQL basé sur la table 'user'
+ */
 class utilisateurDAO extends DAO{
 
   public function inscription(parametre $post){
     $this->checkUtilisateur($post);
     $sql = 'INSERT INTO user (Pseudo,Password,role_id) VALUES (?,?,?)';
-    $this->createQuery($sql,[$post->get('pseudo'),password_hash($post->get('password'),PASSWORD_BCRYPT)],2);
+    $this->createQuery($sql,[$post->get('pseudo'),password_hash($post->get('password'),PASSWORD_BCRYPT),2]);
   }
 
   public function checkUtilisateur(parametre $post){
@@ -22,10 +27,10 @@ class utilisateurDAO extends DAO{
   }
 
   public function connexion(parametre $post){
-    $sql = 'SELECT user.ID_user,user.Password,role.Nom_Role FROM user INNER JOIN role ON role.ID_Role= user.role_id WHERE pseudo =?';
+    $sql = 'SELECT user.ID_user,user.Password,role.Nom_Role FROM user INNER JOIN role ON role.ID_Role = user.role_id WHERE pseudo =?';
     $data=$this->createQuery($sql,[$post->get('pseudo')]);
     $result=$data->fetch();
-    $isPasswordOK = password_verify($post->get('password'),password_hash($result['Password'],PASSWORD_BCRYPT));
+    $isPasswordOK = password_verify($post->get('password'),$result['Password']);
     return ['result'=>$result,'isPasswordOK'=>$isPasswordOK];
   }
 

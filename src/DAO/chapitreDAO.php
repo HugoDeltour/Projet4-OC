@@ -5,6 +5,11 @@ namespace App\src\DAO;
 use App\config\parametre;
 use App\src\model\chapitre;
 
+/**
+ * class chapitreDAO
+ * @packages App\src\DAO
+ * Requete SQL basé sur la table 'chapitre'
+ */
 class chapitreDAO extends DAO{
 
 	private function buildObjectChapitre($row){

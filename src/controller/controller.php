@@ -9,6 +9,11 @@ use App\src\model\View;
 use App\src\contrainte\validation;
 use App\src\DAO\utilisateurDAO;
 
+/**
+ * class controller
+ * @packages App\src\controller
+ * Controlleur servant à initialiser les différentes variable nécessaire aux autres controlleur
+ */
 abstract class Controller
 {
     protected $chapitreDAO;
