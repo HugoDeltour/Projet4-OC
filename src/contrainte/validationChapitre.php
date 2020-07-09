@@ -3,6 +3,11 @@
 namespace App\src\contrainte;
 use App\config\parametre;
 
+/**
+ * class validationChapitre
+ * @packages App\config\parametre
+ * class permettant la validation de certaine contrainte concernant l'ajout de chapitre
+ */
 class validationChapitre extends validation{
 
   private $errors = [];

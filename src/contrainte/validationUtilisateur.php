@@ -3,6 +3,12 @@
 namespace App\src\contrainte;
 use App\config\parametre;
 
+/**
+ * class validationUtilisateur
+ * @packages App\config\parametre
+ * class permettant la validation de certaine contrainte concernant le pseudo et le mot de passe de l'utilisateur
+ */
+
 class validationUtilisateur extends validation{
 
   private $errors=[];
