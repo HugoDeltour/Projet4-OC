@@ -3,6 +3,12 @@
 namespace App\src\contrainte;
 use App\config\parametre;
 
+/**
+ * class validationCommentaire
+ * @packages App\config\parametre
+ * class permettant la validation de certaine contrainte concernant les commentaires
+ */
+
 class validationCommentaire extends validation{
 
   private $errors = [];

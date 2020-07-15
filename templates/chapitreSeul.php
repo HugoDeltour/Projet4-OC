@@ -3,6 +3,7 @@
 <?php
 require('menu.php');
 ?>
+
 <div id="list-chap">
     <h1>Chapitre</h1>
     <?php
@@ -28,7 +29,7 @@ require('menu.php');
   }
   ?>
 </div>
-<div id="commentaire">
+<div id="ajoutCommentaire">
   <h3>Ajouter un commentaire</h3>
   <?php include('base_form_commentaire.php');?>
   <h3>Commentaires</h3>

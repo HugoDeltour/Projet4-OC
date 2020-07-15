@@ -1,7 +1,10 @@
 <?php
 
 namespace App\src\contrainte;
-
+/**
+ * class contrainte
+ * class listant les différentes contraintes utilisées
+ */
 class contrainte{
 
   public function nonVide($name,$value){
