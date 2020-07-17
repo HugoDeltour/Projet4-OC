@@ -4,6 +4,11 @@ namespace App\src\model;
 
 use App\config\request;
 
+/**
+ * class view
+ * @packages App\config\request
+ * class permettant d'afficher les pages du blog
+ */
 class view{
 
   private $file;

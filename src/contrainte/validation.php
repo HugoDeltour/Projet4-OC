@@ -1,7 +1,10 @@
 <?php
 
 namespace App\src\contrainte;
-
+/**
+ * class validation
+ * class permettant de diriger vers la bonne validation
+ */
 class validation{
 
   public function validate($data,$name){
