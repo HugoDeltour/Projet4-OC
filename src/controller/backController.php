@@ -77,5 +77,17 @@ class backController extends Controller{
     ]);
   }
 
+  public function supprimerCommentaire($comID){
+    $this->commentDAO->supprimerCommentaire($comID);
+    $this->session->set('supprimer_commentaire','Le commentaire a été supprimé');
+    header('Location:../public/index.php');
+  }
+
+  public function nonSignalCommentaire($comID){
+    $this->commentDAO->nonSignalCommentaire($comID);
+    $this->session->set('signalCommentaire','Le commentaire a été enlever des commentaires signalés');
+    header('Location:../public/index.php');
+  }
+
 }
 ?>

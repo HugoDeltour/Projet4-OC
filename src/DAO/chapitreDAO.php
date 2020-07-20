@@ -14,19 +14,19 @@ class chapitreDAO extends DAO{
 
 	private function buildObjectChapitre($row){
 		$chapitre = new chapitre();
-		$chapitre->setId($row['ID_Chapitre']);
-		$chapitre->setTitle($row['Titre_Chapitre']);
-		$chapitre->setText($row['Text_Chapitre']);
-		$chapitre->setAuthor($row['Ecrivain']);
+		$chapitre->setId($row['id_chapitre']);
+		$chapitre->setTitle($row['titre_chapitre']);
+		$chapitre->setText($row['text_chapitre']);
+		$chapitre->setAuthor($row['auteur']);
 		return $chapitre;
 	}
 
 	public function getChapitres(){
-		$sql='SELECT ID_Chapitre, Titre_Chapitre, Text_Chapitre, Ecrivain FROM chapitre';
+		$sql='SELECT id_chapitre, titre_chapitre, text_chapitre, auteur FROM chapitre';
 		$result = $this->createQuery($sql);
 		$chap=[];
 		foreach ($result as $row) {
-			$idChap=$row['ID_Chapitre'];
+			$idChap=$row['id_chapitre'];
 			$chap[$idChap]=$this->buildObjectChapitre($row);
 		}
 		$result->closeCursor();
@@ -34,7 +34,7 @@ class chapitreDAO extends DAO{
 	}
 
 	public function getChapitre($chapID){
-		$sql='SELECT ID_Chapitre, Titre_Chapitre, Text_Chapitre, Ecrivain FROM chapitre WHERE ID_Chapitre = ?';
+		$sql='SELECT id_chapitre, titre_chapitre, text_chapitre, auteur FROM chapitre WHERE id_chapitre = ?';
 		$result= $this->createQuery($sql,[$chapID]);
 		$chap = $result->fetch();
 		$result->closeCursor();
@@ -42,24 +42,24 @@ class chapitreDAO extends DAO{
 	}
 
 	public function ajoutChapitre(parametre $chap){
-		$sql = 'INSERT INTO chapitre (Titre_Chapitre,Text_Chapitre,Ecrivain) VALUES(?,?,?)';
-		$this->createQuery($sql, [$chap->get('Titre_Chapitre'),$chap->get('Text_Chapitre'),$chap->get('Ecrivain')]);
+		$sql = 'INSERT INTO chapitre (titre_chapitre,text_chapitre,auteur) VALUES(?,?,?)';
+		$this->createQuery($sql, [$chap->get('titre_chapitre'),$chap->get('text_chapitre'),$chap->get('auteur')]);
 	}
 
 	public function modifChapitre(parametre $post, $chapID){
-		$sql = 'UPDATE chapitre SET Titre_Chapitre=:title, Text_Chapitre=:content, Ecrivain=:author WHERE ID_Chapitre =:chapID ';
+		$sql = 'UPDATE chapitre SET titre_chapitre=:title, text_chapitre=:content, auteur=:author WHERE id_chapitre =:chapID ';
 		$this->createQuery($sql,[
-			'title'=> $post->get('Titre_Chapitre'),
-			'content'=> $post->get('Text_Chapitre'),
-			'author'=> $post->get('Ecrivain'),
+			'title'=> $post->get('titre_chapitre'),
+			'content'=> $post->get('text_chapitre'),
+			'author'=> $post->get('auteur'),
 			'chapID'=> $chapID
 		]);
 	}
 
 	public function supprimerChapitre($chapID){
-		$sql = 'DELETE FROM commentaire WHERE Commentaire_ID_CHapitre=?';
+		$sql = 'DELETE FROM commentaire WHERE commentaire_id_chapitre=?';
 		$this->createQuery($sql,[$chapID]);
-		$sql = 'DELETE FROM chapitre WHERE ID_Chapitre=?';
+		$sql = 'DELETE FROM chapitre WHERE id_chapitre=?';
 		$this->createQuery($sql,[$chapID]);
 	}
 

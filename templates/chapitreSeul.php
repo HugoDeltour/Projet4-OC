@@ -37,7 +37,7 @@ require('menu.php');
           foreach($comments as $comment)
           {?>
             <p><?= htmlspecialchars($comment->getPseudo());?></p>
-            <p><?= htmlspecialchars($comment->getComment());?></p>
+            <p><?= $comment->getComment();?></p>
             <p><?= htmlspecialchars($comment->getDate());?></p>
             <?php
             if($comment->isSignal()){

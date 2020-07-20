@@ -56,6 +56,15 @@ class router{
         elseif ($route==='deconnexion') {
           $this->backController->deconnexion();
         }
+        elseif ($route==='commentairesSignales') {
+          $this->frontController->commentairesSignales();
+        }
+        elseif ($route==='supprimerCommentaire') {
+          $this->backController->supprimerCommentaire($this->request->getGet()->get('comID'));
+        }
+        elseif ($route==='nonSignalCommentaire') {
+          $this->backController->nonSignalCommentaire($this->request->getGet()->get('comID'));
+        }
         else{
           $this->errorController->errorNotFound();
         }

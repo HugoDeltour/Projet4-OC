@@ -116,6 +116,15 @@ class frontController extends Controller{
     ]);
   }
 
+  public function commentairesSignales(){
+    $reqChap = $this->chapitreDAO->getChapitres();
+    $reqComSignal = $this->commentDAO->commentairesSignales();
+    return $this->view->rendu('commentairesSignales',[
+      'reqChap'=>$reqChap,
+      'reqComSignal'=>$reqComSignal
+    ]);
+  }
+
 }
 
 ?>
