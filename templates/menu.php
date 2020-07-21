@@ -1,7 +1,6 @@
 <div id="menu">
     <nav>
-        <ul>
-
+        <ul class="barrenavigation">
             <li><a href="./index.php?route=auteur">Qui suis-je ?</a></li>
             <?php if($this->session->get('pseudo')){
               ?>

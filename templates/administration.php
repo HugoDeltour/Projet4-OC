@@ -15,5 +15,4 @@ require('menu.php');
 <div id="administration">
   <a href="./index.php?route=ajoutChapitre">Ajout chapitre</a></br>
   <a href="./index.php?route=commentairesSignales">Commentaires signalés</a></br>
-  <a href="./index.php?route=utilisateurSite">Utilisateur</a></br>
 </diV>
