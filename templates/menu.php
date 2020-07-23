@@ -1,4 +1,5 @@
 <div id="menu">
+    <input class="burger" type="checkbox">
     <nav>
         <ul class="barrenavigation">
             <li><a href="./index.php?route=auteur">Qui suis-je ?</a></li>
