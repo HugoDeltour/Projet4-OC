@@ -35,9 +35,6 @@ class router{
         elseif ($route==='modifChapitre') {
           $this->backController->modifChapitre($this->request->getPost(),$this->request->getGet()->get('chapID'));
         }
-        elseif ($route==='auteur') {
-          $this->frontController->auteur();
-        }
         elseif ($route==='supprimerChapitre') {
           $this->backController->supprimerChapitre($this->request->getGet()->get('chapID'));
         }

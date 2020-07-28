@@ -3,7 +3,7 @@ $route=isset($post) && $post->get('ID_Commentaire') ? 'modifCommentaire':'ajoutC
 $submit=$route==='ajoutCommentaire'?'Ajouter':'Mettre à jour';
 ?>
 
-<form method="post" action="../public/index.php?route=<?=$route;?>&chapID=<?=htmlspecialchars($req->getId());?>">
+<form method="post" action="../index.php?route=<?=$route;?>&chapID=<?=htmlspecialchars($req->getId());?>">
   <label for="pseudo">Pseudo:</label>
   <input type="text" id="pseudo" name="pseudo" value="<?= isset($post) ?htmlspecialchars($post->get('pseudo')):"" ?>"></br>
   <?=isset($errors['pseudo'])?$errors['pseudo']:'';?>

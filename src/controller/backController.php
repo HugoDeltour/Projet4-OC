@@ -13,7 +13,7 @@ class backController extends Controller{
       if(!$errors){
         $this->chapitreDAO->ajoutChapitre($post);
         $this->session->set('ajout_chapitre','Le nouveau chapitre a été ajouté !');
-        header('Location: ../public/index.php');
+        header('Location: ../index.php');
       }
       return $this->view->rendu('ajout_chapitre',[
         'post'=>$post,
@@ -35,7 +35,7 @@ class backController extends Controller{
       if(!$errors){
         $this->chapitreDAO->modifChapitre($post,$chapID);
         $this->session->set('modif_chapitre','Le chapitre a été modifié !');
-        header('Location: ../public/index.php');
+        header('Location: ../index.php');
       }
       return $this->view->rendu('modif_chapitre',[
         'chapitre'=>$chapitre,
@@ -60,14 +60,14 @@ class backController extends Controller{
   public function supprimerChapitre($chapID){
     $this->chapitreDAO->supprimerChapitre($chapID);
     $this->session->set('supprimer_chapitre','Le chapitre a été supprimé');
-    header('Location:../public/index.php');
+    header('Location:../index.php');
   }
 
   public function deconnexion(){
     $this->session->arret();
     $this->session->depart();
     $this->session->set('deconnexion','Au revoir');
-    header('Location:../public/index.php');
+    header('Location:../index.php');
   }
 
   public function administration(){
@@ -80,13 +80,13 @@ class backController extends Controller{
   public function supprimerCommentaire($comID){
     $this->commentDAO->supprimerCommentaire($comID);
     $this->session->set('supprimer_commentaire','Le commentaire a été supprimé');
-    header('Location:../public/index.php');
+    header('Location:../index.php');
   }
 
   public function nonSignalCommentaire($comID){
     $this->commentDAO->nonSignalCommentaire($comID);
     $this->session->set('signalCommentaire','Le commentaire a été enlever des commentaires signalés');
-    header('Location:../public/index.php');
+    header('Location:../index.php');
   }
 
 }

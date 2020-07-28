@@ -31,7 +31,7 @@ class validationUtilisateur extends validation{
       $this->addError($name,$error);
     }
     elseif ($name==='password') {
-      $error=$this->checkCommentaire($name,$value);
+      $error=$this->checkPassword($name,$value);
       $this->addError($name,$error);
     }
   }

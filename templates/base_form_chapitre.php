@@ -3,7 +3,7 @@ $route = isset($post) && $post->get('ID_Chapitre') ? 'modifChapitre&chapID='.$po
 $submit = $route === 'ajoutChapitre' ? 'Envoyer' : 'Mettre à jour';
 ?>
 
-<form method="post" action="../public/index.php?route=<?=$route;?>">
+<form method="post" action="../index.php?route=<?=$route;?>">
   <label for="Titre_Chapitre">Titre</label></br>
   <input type="text" id="Titre_Chapitre" name="Titre_Chapitre" value="<?= isset($post) ? htmlspecialchars($post->get('Titre_Chapitre')):"";?>"></br>
   <?=isset($errors['Titre_Chapitre'])?$errors['Titre_Chapitre']:'';?>

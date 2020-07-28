@@ -33,20 +33,13 @@ class frontController extends Controller{
     ]);
   }
 
-  public function auteur(){
-    $reqChap = $this->chapitreDAO->getChapitres();
-    return $this->view->rendu('auteur',[
-      'reqChap'=>$reqChap
-    ]);
-  }
-
   public function ajoutCommentaire(parametre $post,$chapID){
     if($post->get('submit')){
       $errors=$this->validation->validate($post,'commentaire');
       if(!$errors){
         $this->commentDAO->ajoutCommentaire($post,$chapID);
         $this->session->set('ajout_commentaire','Le commentaire a été ajouté');
-        header('Location:../public/index.php?route=chapitre&chapID='.$chapID);
+        header('Location:../index.php?route=chapitre&chapID='.$chapID);
       }
       $reqChap = $this->chapitreDAO->getChapitres();
       $req=$this->chapitreDAO->getChapitre($chapID);
@@ -64,19 +57,19 @@ class frontController extends Controller{
   public function signalerCommentaire($commentID){
     $this->commentDAO->signalerCommentaire($commentID);
     $this->session->set('signaler_commentaire','Le commentaire a été signalé');
-    header('Location:../public/index.php');
+    header('Location:../index.php');
   }
 
   public function inscription(parametre $post){
     if($post->get('submit')){
-      $errors=$this->validation->validate($post,'inscription');
+      $errors=$this->validation->validate($post,'utilisateur');
       if($this->utilisateurDAO->checkUtilisateur($post)){
         $errors['pseudo']=$this->utilisateurDAO->checkUtilisateur($post);
       }
       if(!$errors){
         $this->utilisateurDAO->inscription($post);
         $this->session->set('inscription','Vous êtes inscrit !');
-        header('Location:../public/index.php');
+        header('Location:../index.php');
       }
       $reqChap = $this->chapitreDAO->getChapitres();
       return $this->view->rendu('inscription',[
@@ -100,7 +93,7 @@ class frontController extends Controller{
         $this->session->set('id',$result['result']['id']);
         $this->session->set('role',$result['result']['nom_role']);
         $this->session->set('pseudo',$post->get('pseudo'));
-        header('Location:../public/index.php');
+        header('Location:../index.php');
       }
       else {
         $this->session->set('error_connexion','Le pseudo et/ou le mot de passe sont incorrects');

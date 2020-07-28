@@ -67,6 +67,46 @@ nav{
   margin-left: 20%;
 }
 
+#formConnexion{
+  margin-left: 40%;
+  margin-top: 10%;
+  border: 2px solid;
+  padding: 15px;
+}
+
+#formInscription{
+  margin-left: 40%;
+  margin-top: 10%;
+  border: 2px solid;
+  padding: 15px;
+}
+
+#element-central{
+  margin-left: 20%;
+}
+
+#espace-administration{
+  margin-left: 30%;
+}
+
+#lien-admin{
+  margin-top: 20%;
+  display: flex;
+}
+
+#lien-admin a{
+  padding: 5px;
+}
+
+#modifChap{
+  margin-top:10%;
+  margin-left: 30%;
+}
+
+#submit{
+  margin: 5px 0px 0px 0px;
+}
+
 @media screen and (max-width: 768px){
 
     .barrenavigation{
