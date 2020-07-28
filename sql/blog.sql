@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 20 juil. 2020 à 07:20
+-- Généré le :  mar. 28 juil. 2020 à 14:31
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -63,15 +63,14 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
   KEY `Commentaire_ID_Chapitre` (`commentaire_id_chapitre`),
   KEY `Commentaire_ID_Chapitre_2` (`commentaire_id_chapitre`),
   KEY `fk_Commentaire_ID_Chapitre` (`commentaire_id_chapitre`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `commentaire`
 --
 
 INSERT INTO `commentaire` (`id_commentaire`, `pseudo`, `text_commentaire`, `date_creation`, `signaler`, `commentaire_id_chapitre`) VALUES
-(2, 'Hugo', 'COUCOU\r\n', '2020-06-16', 1, 12),
-(3, 'Hugo', 'HELL', '2020-06-17', 1, 12);
+(4, 'hugp', '<p>hello</p>', '2020-07-20', 0, 12);
 
 -- --------------------------------------------------------
 
@@ -108,14 +107,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `role_id` int(11) NOT NULL,
   PRIMARY KEY (`id_user`),
   KEY `fk_role_id` (`role_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id_user`, `pseudo`, `password`, `role_id`) VALUES
-(6, 'test', '$2y$10$JpGFtloB46Ndf1nQ2CVZEO28LqmpAzKlCvvDOxApdujMp8YhEFTSG', 1);
+(10, 'user', '$2y$10$lZmjdenpWo3f276GJKP4PO112pyNx4wdK7OOLsvFvKu96sIXv5aXO', 2),
+(7, 'admin', '$2y$10$O9xaONMSVd.uS8a6Ix9WD.HuyPyCD26z2yf6nJuaaCkQpr3nD8mCG', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
