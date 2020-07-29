@@ -5,7 +5,7 @@ $submit=$route==='ajoutCommentaire'?'Ajouter':'Mettre à jour';
 
 <form method="post" action="../index.php?route=<?=$route;?>&chapID=<?=htmlspecialchars($req->getId());?>">
   <label for="pseudo">Pseudo:</label>
-  <input type="text" id="pseudo" name="pseudo" value="<?= isset($post) ?htmlspecialchars($post->get('pseudo')):"" ?>"></br>
+  <input type="text" id="pseudo" name="pseudo" value="<?= $this->session->get("pseudo");isset($post) ?htmlspecialchars($post->get('pseudo')):"" ?>"></br>
   <?=isset($errors['pseudo'])?$errors['pseudo']:'';?>
   <label for="commentaire">Commentaire:</label></br>
   <textarea id="commentaire" name="commentaire" value="<?= isset($post) ?htmlspecialchars($post->get('commentaire')):"" ?>"></textarea></br>

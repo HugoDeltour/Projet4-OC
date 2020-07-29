@@ -107,6 +107,16 @@ nav{
   margin: 5px 0px 0px 0px;
 }
 
+#formulaireAjoutChapitre{
+  margin-top: 10%;
+  margin-left: 30%;
+}
+
+#commentairesSignales{
+  margin-top: 10%;
+  margin-left: 30%;
+}
+
 @media screen and (max-width: 768px){
 
     .barrenavigation{

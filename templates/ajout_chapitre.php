@@ -1,4 +1,4 @@
-<?php $this->title = "Nouvel article";
+<?php $this->title = "Nouveau chapitre";
  require 'menu.php'; ?>
  <div id="MP-chap">
   <div id="list-chap">
@@ -10,7 +10,8 @@
           };
       ?>
   </div></br>
-  <div>
+  <div id="formulaireAjoutChapitre">
+    <h1>Ajout chapitre</h1>
     <?php include('base_form_chapitre.php');?>
   </div>
 </div>
