@@ -117,6 +117,23 @@ nav{
   margin-left: 30%;
 }
 
+#lien-admin a{
+    background-color: #5CADD3;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size:20px;
+    font-weight: bold;
+    box-shadow: 0px 3px 0px #4B8FAF;
+    border-radius: 4%;
+
+}
+
 @media screen and (max-width: 768px){
 
     .barrenavigation{
@@ -125,7 +142,7 @@ nav{
 
     #menu{
         height:60px;
-        position:relative;
+        position:fixed;
         overflow:visible;
     }
 
@@ -175,7 +192,7 @@ nav{
         position:absolute;
         text-align:center;
         top:15px;
-        right:150px;
+        right:1%;
         width:50px;
         color:#5CADD3;
         z-index:31;
@@ -205,6 +222,32 @@ nav{
         width:100%;
         margin-left: 40%;
     }
+
+    #list-chap{
+      position:relative;
+    }
+
+    #MP-chap{
+      display: block;
+      margin-left: 50px;
+    }
+
+    #element-central,#chapitre,#formConnexion,#formInscription,#espace-administration,#formulaireAjoutChapitre,#commentairesSignales{
+      margin-left: 0px;
+    }
+
+    form div{
+      width:450px;
+    }
+
+    #formConnexion,#formInscription{
+      width:max-content;
+    }
+
+    #lien-admin{
+      margin-top: 5%;
+    }
+
 
 }
 

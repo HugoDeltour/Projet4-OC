@@ -13,10 +13,11 @@
       ?>
   </div></br>
   <div id="commentairesSignales">
+    <h1>Commentaires signalés</h1>
     <?php
       foreach ($reqComSignal as $donnees) {
         ?>
-        <p><?= $donnees->getComment();?></p>
+        <?=$donnees->getComment();?>
         <a href="../index.php?route=supprimerCommentaire&comID=<?=$donnees->getId();?>">Supprimer</a>
         <a href="../index.php?route=nonSignalCommentaire&comID=<?=$donnees->getId();?>">Enlever le signalement</a>
         <?php
