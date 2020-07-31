@@ -6,7 +6,7 @@ tinymce.init({
     // langue
     language : "fr_FR",
     //plugins
-    height:"250px",
+    height:"200px",
     toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
   'bullist numlist outdent indent | link image | print preview media fullpage | ' +
   'forecolor backcolor emoticons | help',

@@ -15,7 +15,7 @@ require('menu.php');
   </div></br>
   <div id="element-central">
     <div id="Chapitre">
-        <h2><?=htmlspecialchars($req->getTitle());?></h2>
+        <h1><?=htmlspecialchars($req->getTitle());?></h1>
         <?=$req->getText();?>
         </br>
         <?=htmlspecialchars($req->getAuthor());?>
@@ -38,20 +38,22 @@ require('menu.php');
       <?php
               foreach($comments as $comment)
               {?>
-                <p><?= htmlspecialchars($comment->getPseudo());?></p>
-                <p><?= $comment->getComment();?></p>
-                <p><?= htmlspecialchars($comment->getDate());?></p>
-                <?php
-                if($comment->isSignal()){
-                  ?>
-                  <p>Commentaire déjà signaler</p>
+                <div id="Commentaire">
+                  <p><?= htmlspecialchars($comment->getPseudo());?></p>
+                  <p><?= $comment->getComment();?></p>
+                  <p><?= htmlspecialchars($comment->getDate());?></p>
                   <?php
-                }else{
+                  if($comment->isSignal()){
+                    ?>
+                    <p>Commentaire déjà signaler</p>
+                    <?php
+                  }else{
+                    ?>
+                    <p><a href="../index.php?route=signalerCommentaire&commentaireID=<?= $comment->getId(); ?>">Signaler</a></p>
+                    <?php
+                  }
                   ?>
-                  <p><a href="../index.php?route=signalerCommentaire&commentaireID=<?= $comment->getId(); ?>">Signaler</a></p>
-                  <?php
-                }
-                ?>
+                </div>
                 </br>
                 <?php
               }
