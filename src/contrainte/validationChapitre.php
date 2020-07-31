@@ -25,15 +25,15 @@ class validationChapitre extends validation{
   }
 
   private function checkChamps($name,$value){
-    if($name==='Titre_Chapitre'){
+    if($name==='titre_chapitre'){
       $error=$this->checkTitre($name,$value);
       $this->addError($name,$error);
     }
-    elseif ($name==='Text_Chapitre') {
+    elseif ($name==='text_chapitre') {
       $error=$this->checkText($name,$value);
       $this->addError($name,$error);
     }
-    elseif ($name==='Ecrivain') {
+    elseif ($name==='auteur') {
       $error=$this->checkAuteur($name,$value);
       $this->addError($name,$error);
     }

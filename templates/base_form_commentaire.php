@@ -1,5 +1,5 @@
 <?php
-$route=isset($post) && $post->get('ID_Commentaire') ? 'modifCommentaire':'ajoutCommentaire';
+$route=isset($post) && $post->get('id_commentaire') ? 'modifCommentaire':'ajoutCommentaire';
 $submit=$route==='ajoutCommentaire'?'Ajouter':'Mettre à jour';
 ?>
 

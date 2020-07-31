@@ -2,7 +2,7 @@ tinymce.init({
     // type de mode
     mode : "exact",
     // id ou class, des textareas appelés
-    selector : "#commentaire, #Text_Chapitre",
+    selector : "#commentaire, #text_chapitre",
     // langue
     language : "fr_FR",
     //plugins

@@ -5,7 +5,7 @@ namespace App\src\controller;
 use App\config\request;
 use App\src\DAO\chapitreDAO;
 use App\src\DAO\commentDAO;
-use App\src\model\View;
+use App\src\model\view;
 use App\src\contrainte\validation;
 use App\src\DAO\utilisateurDAO;
 
