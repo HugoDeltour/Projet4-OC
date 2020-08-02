@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang=fr>
   <head>
-    <meta charset="utf-8"/>    
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <script src="../tinyMCE/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="../css/styles.css" />
     <script src="../js/Tiny-MCE.js" type="text/javascript"></script>
