@@ -36,3 +36,5 @@ Pour être un simple utilisateur utilisez :
 
 Pseudo: user
 Mot de passe: user
+
+Livre utilisé pour avoir du contenu : Nevrosée de Jeanne Loiseau
