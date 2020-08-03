@@ -17,7 +17,7 @@ Ensuite, il vous faut installer l'autoload de Composer comme suit:
       - Ensuite entrez la commande "cd" suivi du chemin d'accès au dossier choisi précédemment
   - Pour finir entrez la commande "composer dump-autoload"
 
-Depuis localHost vous pouvez accéder à phpMyAdmin et ainsi créer la base de données "blog" et exécuter de script 'blog.sql' que vous trouverez dans le dossier sql du site internet.
+Depuis localHost vous pouvez accéder à phpMyAdmin et ainsi créer la base de données "blog" et exécuter le script 'blog.sql' que vous trouverez dans le dossier sql du site internet.
 
 Ensuite, il vous faudra modifier le fichier dev.php qui se situe dans le dossier config. Dedans vous devrez changer les constante HOST, DB_NAME, DB_USER et DB_password avec vos propres informations de base de données. Si vous êtes en local :
             const HOST = 'localHost';
